@@ -23,6 +23,7 @@ public class Alarme
     
     public void stopAlarme(){
        active=false;
+	    
     }
     
     //Get-set 
