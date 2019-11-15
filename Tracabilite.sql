@@ -2,6 +2,7 @@ DROP TABLE InfoCereale;
 DROP TABLE Reception;
 DROP TABLE Expedition;
 DROP TABLE Cellule;
+DROP TABLE Silo;
 
 CREATE TABLE InfoCereale (
     catégorie VARCHAR(50), /* Blé, orge, pois, proteagineux, colza */
@@ -28,7 +29,13 @@ CREATE TABLE Cellule (
     NoCellLot number(5),
     NoCellSilo number(2),
     FOREIGN KEY (NoCellLot) REFERENCES InfoCereale(NoLot),
+    FOREIGN KEY (NoCellSilo) REFERENCES Silo(NoSilo),
     PRIMARY KEY (NoCell)
+);
+
+CREATE TABLE Silo (
+    NoSilo number(2),
+    PRIMARY KEY (NoSilo)
 );
 
 CREATE TABLE Expedition (
@@ -47,6 +54,7 @@ INSERT INTO Reception VALUES('Routier',2,225,1);
 
 INSERT INTO InfoCereale VALUES('Blé', 20, 'Mauvais', 226);
 INSERT INTO Cellule VALUES(current DATE,current DATE,current DATE, 2, 226, 3);
+INSERT INTO Silo VALUES(3);
 
 INSERT INTO InfoCereale VALUES('Blé', 5, 'Bon', 227);
 INSERT INTO Reception VALUES('BazinMobile',35,'TonnerreCity',227,4);
