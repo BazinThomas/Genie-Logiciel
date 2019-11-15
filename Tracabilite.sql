@@ -2,9 +2,6 @@ DROP TABLE InfoCereale;
 DROP TABLE Reception;
 DROP TABLE Expedition;
 DROP TABLE Cellule;
-/*
-DROP TABLE Silo;
-*/
 
 CREATE TABLE InfoCereale (
     catégorie VARCHAR(50), /* Blé, orge, pois, proteagineux, colza */
@@ -29,8 +26,6 @@ CREATE TABLE Cellule (
     Traitement DATE,
     NoCell number(2),
     NoCellLot number(5),
- /* NoCellSilo number(2),
-    FOREIGN KEY (NoCellSilo) REFERENCES Silo(NoSilo), */
     FOREIGN KEY (NoCellLot) REFERENCES InfoCereale(NoLot),
     PRIMARY KEY (NoCell)
 );
