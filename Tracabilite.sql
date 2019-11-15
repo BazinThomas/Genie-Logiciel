@@ -24,18 +24,12 @@ CREATE TABLE Cellule (
     Nettoyage DATE,
     Ventilation DATE,
     Traitement DATE,
+    PoidsMax number(5), /* en volume unitaire de 410 à 1370 m3 */
     NoCell number(2),
     NoCellLot number(5),
     FOREIGN KEY (NoCellLot) REFERENCES InfoCereale(NoLot),
     PRIMARY KEY (NoCell)
 );
-
-/*
-CREATE TABLE Silo (
-    NoSilo number(2),
-    PRIMARY KEY (NoSilo)
-);
-*/
 
 CREATE TABLE Expedition (
     SocieteTransport VARCHAR(50), 
@@ -52,10 +46,7 @@ INSERT INTO InfoCereale VALUES('Blé', 10, 'Bon', 225);
 INSERT INTO Reception VALUES('Routier',2,225,1);
 
 INSERT INTO InfoCereale VALUES('Blé', 20, 'Mauvais', 226);
-INSERT INTO Cellule VALUES(current DATE,current DATE,current DATE, 2, 226, 3);
-/*
-INSERT INTO Silo VALUES(3);
-*/
+INSERT INTO Cellule VALUES(current DATE,current DATE,current DATE,1300, 2, 226, 3);
 
 INSERT INTO InfoCereale VALUES('Blé', 5, 'Bon', 227);
 INSERT INTO Reception VALUES('BazinMobile',35,'TonnerreCity',227,4);
