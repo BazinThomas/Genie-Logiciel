@@ -93,7 +93,9 @@ public class MainVue extends javax.swing.JFrame {
     private void receptionActionPerformed(java.awt.event.ActionEvent evt) {                                         
         this.setVisible(false);
         VueReception r = new VueReception(this,true);
+        r.c=c;
         r.setVisible(true);
+        c.getSilo().getCellule(r.cell).getInfo().setVolume( c.getSilo().getCellule(r.cell).getInfo().getVolume() + r.infocere.getVolume());
         this.setVisible(true);
     }                                        
 
@@ -141,16 +143,16 @@ public class MainVue extends javax.swing.JFrame {
         s.max9.setText(""+c.getSilo().getCellule(8).getPoidsMax());
         s.max10.setText(""+c.getSilo().getCellule(9).getPoidsMax());
         
-        s.temp1.setText(""+c.getSilo().getCellule(0).getSonde());
-        s.temp2.setText(""+c.getSilo().getCellule(1).getSonde());
-        s.temp3.setText(""+c.getSilo().getCellule(2).getSonde());
-        s.temp4.setText(""+c.getSilo().getCellule(3).getSonde());
-        s.temp5.setText(""+c.getSilo().getCellule(4).getSonde());
-        s.temp6.setText(""+c.getSilo().getCellule(5).getSonde());
-        s.temp7.setText(""+c.getSilo().getCellule(6).getSonde());
-        s.temp8.setText(""+c.getSilo().getCellule(7).getSonde());
-        s.temp9.setText(""+c.getSilo().getCellule(8).getSonde());
-        s.temp10.setText(""+c.getSilo().getCellule(9).getSonde());
+        s.temp1.setText(""+c.getSilo().getCellule(0).getSonde()+"   P :"+c.getSilo().getCellule(0).getInfo().getVolume());
+        s.temp2.setText(""+c.getSilo().getCellule(1).getSonde()+"   P :"+c.getSilo().getCellule(1).getInfo().getVolume());
+        s.temp3.setText(""+c.getSilo().getCellule(2).getSonde()+"   P :"+c.getSilo().getCellule(2).getInfo().getVolume());
+        s.temp4.setText(""+c.getSilo().getCellule(3).getSonde()+"   P :"+c.getSilo().getCellule(3).getInfo().getVolume());
+        s.temp5.setText(""+c.getSilo().getCellule(4).getSonde()+"   P :"+c.getSilo().getCellule(4).getInfo().getVolume());
+        s.temp6.setText(""+c.getSilo().getCellule(5).getSonde()+"   P :"+c.getSilo().getCellule(5).getInfo().getVolume());
+        s.temp7.setText(""+c.getSilo().getCellule(6).getSonde()+"   P :"+c.getSilo().getCellule(6).getInfo().getVolume());
+        s.temp8.setText(""+c.getSilo().getCellule(7).getSonde()+"   P :"+c.getSilo().getCellule(7).getInfo().getVolume());
+        s.temp9.setText(""+c.getSilo().getCellule(8).getSonde()+"   P :"+c.getSilo().getCellule(8).getInfo().getVolume());
+        s.temp10.setText(""+c.getSilo().getCellule(9).getSonde()+"   P :"+c.getSilo().getCellule(9).getInfo().getVolume());
         
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
         s.actu1.setText("N:"+formatter.format(c.getSilo().getCellule(0).getNettoyage())+"\nV:"+formatter.format(c.getSilo().getCellule(0).getVentilation())+"\nT:"+formatter.format(c.getSilo().getCellule(0).getTraitement()));

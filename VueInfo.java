@@ -5,15 +5,13 @@
  */
 package Beuzelin;
 
-/**
- *
- * @author af077964
- */
+
+import java.lang.Math;
+
 public class VueInfo extends javax.swing.JDialog {
 
-    /**
-     * Creates new form VueInfo
-     */
+    public InfoCereales info;
+    
     public VueInfo(java.awt.Dialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -53,7 +51,7 @@ public class VueInfo extends javax.swing.JDialog {
 
         jPanel1.setLayout(new java.awt.BorderLayout());
 
-        infocategorie.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        infocategorie.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "blé", "colza", "pois", "proteagineux", "orge" }));
         jPanel1.add(infocategorie, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(jPanel1);
@@ -73,7 +71,7 @@ public class VueInfo extends javax.swing.JDialog {
 
         jPanel3.setLayout(new java.awt.BorderLayout());
 
-        infoqualite.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        infoqualite.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "très bon", "bon", "mauvais" }));
         jPanel3.add(infoqualite, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(jPanel3);
@@ -152,8 +150,21 @@ public class VueInfo extends javax.swing.JDialog {
         this.dispose();
     }                                           
 
-    private void infovaliderActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        // TODO add your handling code here:
+    private void infovaliderActionPerformed(java.awt.event.ActionEvent evt) {
+        if (infopoids.getText().equals(""))
+            infoaffichage.setText("Pas de poids");
+        else if (infovolume.getText().equals(""))
+            infoaffichage.setText("Pas de volume");
+        else {
+            infoaffichage.setText(infocategorie.getSelectedItem().toString());
+            String categorie=infocategorie.getSelectedItem().toString();
+            int poids=Integer.parseInt(infopoids.getText());
+            String qualite=infoqualite.getSelectedItem().toString();
+            int numLot=((int)(1 + (Math.random() * (1000 - 1) )));
+            int volume=Integer.parseInt(infovolume.getText());
+            info = new InfoCereales(categorie,poids,qualite,numLot,volume);
+            this.dispose();
+        }
     }                                           
 
     /**

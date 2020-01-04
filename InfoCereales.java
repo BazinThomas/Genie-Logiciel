@@ -68,4 +68,10 @@ public class InfoCereales {
         this.volume = volume;
     }
 
+    @Override
+    public String toString() {
+        return "InfoCereales{" + "categorie=" + categorie + ", poids=" + poids + ", qualite=" + qualite + ", numLot=" + numLot + ", volume=" + volume + '}';
+    }
+
+    
 }

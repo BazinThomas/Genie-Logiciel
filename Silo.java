@@ -98,4 +98,11 @@ public class Silo
         return infocere.get(v);
     }
 
+    public boolean getInfoNum(int v){
+        for(int i=0; i<infocere.size();i++){
+            if(this.getInfo(i).getNumLot()==v)
+                return false;
+        }
+        return true;
+    }
 }

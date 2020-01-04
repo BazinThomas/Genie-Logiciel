@@ -11,6 +11,10 @@ package Beuzelin;
  */
 public class VueReception extends javax.swing.JDialog {
 
+    public InfoCereales infocere;
+    public Controleur c;
+    public int cell;
+    
     public VueReception(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -64,7 +68,7 @@ public class VueReception extends javax.swing.JDialog {
 
         jPanel2.setLayout(new java.awt.BorderLayout());
 
-        listeCellule.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1" }));
+        listeCellule.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cellule 1","Cellule 2","Cellule 3","Cellule 4","Cellule 5","Cellule 6","Cellule 7","Cellule 8","Cellule 9","Cellule 10" }));
         jPanel2.add(listeCellule, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(jPanel2);
@@ -120,6 +124,8 @@ public class VueReception extends javax.swing.JDialog {
         this.setVisible(false);
         VueInfo i = new VueInfo(this,true);
         i.setVisible(true);
+        infocere=i.info;
+        jTextArea2.setText(infocere.toString());
         this.setVisible(true);
     }  
     
@@ -128,7 +134,16 @@ public class VueReception extends javax.swing.JDialog {
     }                                                
 
     private void receptionvaliderActionPerformed(java.awt.event.ActionEvent evt) {                                                 
-        // TODO add your handling code here:
+        if (infocere==null)
+            jTextArea1.setText("Pas de céréales");
+        else if (!infocere.getCategorie().equals(c.getSilo().getCellule((listeCellule.getSelectedIndex())).getInfo().getCategorie()))
+            jTextArea1.setText("Mauvais céréales");
+        else if (affichagelistetransport.getText().equals(""))
+            jTextArea1.setText("Pas de numéro de reception");
+        else {
+            cell=listeCellule.getSelectedIndex();
+            this.dispose();
+        }
     }                                                                                  
 
     /**
