@@ -1,4 +1,4 @@
-package fr.ufrsciencestech.panier;
+package Beuzelin;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -6,17 +6,19 @@ import java.util.logging.Logger;
 public class Conteneur 
 {
 
-    private String typeCereale;
-    private int volume;
-    private boolean plein;
+    private InfoCereales info;
+    private int poidsMax;
     
     //Constructeur
-    public Conteneur(String tc, int v, boolean p) 
-        {	
-		this.typeCereale=tc;
-                this.volume=v;
-                this.plein=p;
-	}
+    public Conteneur(){	
+        this.info=null;
+        this.poidsMax=0;
+    }
+    
+    public Conteneur(InfoCereales i, int pm){
+        this.info=i;
+        this.poidsMax=pm;
+    }
     
     //Methodes
     public void remplir(){
@@ -26,33 +28,21 @@ public class Conteneur
     public void vider(){
         
     }
-    
-    //Get-set 
-    public String getTypeCereale()
-	{
-		return this.typeCereale;
-	}
-    
-    public void setTypeCereale(String TypeCereale) {
-        this.typeCereale = TypeCereale;
+
+    public InfoCereales getInfo() {
+        return info;
     }
-    
-    public int getVolume()
-	{
-		return this.volume;
-	}
-    
-    public void setVolume(int Volume) {
-        this.volume = Volume;
+
+    public void setInfo(InfoCereales info) {
+        this.info = info;
     }
-    
-    public boolean getPlein()
-	{
-		return this.plein;
-	}
-    
-    public void setPlein(boolean Plein) {
-        this.plein = Plein;
+
+    public int getPoidsMax() {
+        return poidsMax;
+    }
+
+    public void setPoidsMax(int poidsMax) {
+        this.poidsMax = poidsMax;
     }
     
     

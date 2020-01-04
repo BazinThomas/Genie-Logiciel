@@ -1,21 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Beuzelin;
 
-/**
- *
- * @author af077964
- */
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.awt.Color;
+
 public class MainVue extends javax.swing.JFrame {
     
-    /**
-     * Creates new form NewJFrame
-     */
+    private Controleur c;
+    private VueSilo s;
+    private Alarme a;
+    
     public MainVue() {
         initComponents();
+        c = new Controleur();
+        a = new Alarme("Je suis l'alarme de test",false);
+        majAlarme();
     }
 
     /**
@@ -106,11 +106,101 @@ public class MainVue extends javax.swing.JFrame {
 
     private void siloActionPerformed(java.awt.event.ActionEvent evt) {                                         
         this.setVisible(false);
-        VueSilo s = new VueSilo(this,true);
+        s = new VueSilo(this,true);
+        initSilo();
         s.setVisible(true);
         this.setVisible(true);
-    }                                        
-
+        if(s.select!=-1){
+            a.stopAlarme();
+            jPanel3.setBackground(Color.green);
+            majBD(s.select-1, s.action);
+        }
+        majAlarme();
+    }
+    
+    private void initSilo(){
+        s.mini1.setText("0");
+        s.mini2.setText("0");
+        s.mini3.setText("0");
+        s.mini4.setText("0");
+        s.mini5.setText("0");
+        s.mini6.setText("0");
+        s.mini7.setText("0");
+        s.mini8.setText("0");
+        s.mini9.setText("0");
+        s.mini10.setText("0");
+        
+        s.max1.setText(""+c.getSilo().getCellule(0).getPoidsMax());
+        s.max2.setText(""+c.getSilo().getCellule(1).getPoidsMax());
+        s.max3.setText(""+c.getSilo().getCellule(2).getPoidsMax());
+        s.max4.setText(""+c.getSilo().getCellule(3).getPoidsMax());
+        s.max5.setText(""+c.getSilo().getCellule(4).getPoidsMax());
+        s.max6.setText(""+c.getSilo().getCellule(5).getPoidsMax());
+        s.max7.setText(""+c.getSilo().getCellule(6).getPoidsMax());
+        s.max8.setText(""+c.getSilo().getCellule(7).getPoidsMax());
+        s.max9.setText(""+c.getSilo().getCellule(8).getPoidsMax());
+        s.max10.setText(""+c.getSilo().getCellule(9).getPoidsMax());
+        
+        s.temp1.setText(""+c.getSilo().getCellule(0).getSonde());
+        s.temp2.setText(""+c.getSilo().getCellule(1).getSonde());
+        s.temp3.setText(""+c.getSilo().getCellule(2).getSonde());
+        s.temp4.setText(""+c.getSilo().getCellule(3).getSonde());
+        s.temp5.setText(""+c.getSilo().getCellule(4).getSonde());
+        s.temp6.setText(""+c.getSilo().getCellule(5).getSonde());
+        s.temp7.setText(""+c.getSilo().getCellule(6).getSonde());
+        s.temp8.setText(""+c.getSilo().getCellule(7).getSonde());
+        s.temp9.setText(""+c.getSilo().getCellule(8).getSonde());
+        s.temp10.setText(""+c.getSilo().getCellule(9).getSonde());
+        
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+        s.actu1.setText("N:"+formatter.format(c.getSilo().getCellule(0).getNettoyage())+"\nV:"+formatter.format(c.getSilo().getCellule(0).getVentilation())+"\nT:"+formatter.format(c.getSilo().getCellule(0).getTraitement()));
+        s.actu2.setText("N:"+formatter.format(c.getSilo().getCellule(1).getNettoyage())+"\nV:"+formatter.format(c.getSilo().getCellule(1).getVentilation())+"\nT:"+formatter.format(c.getSilo().getCellule(1).getTraitement()));
+        s.actu3.setText("N:"+formatter.format(c.getSilo().getCellule(2).getNettoyage())+"\nV:"+formatter.format(c.getSilo().getCellule(2).getVentilation())+"\nT:"+formatter.format(c.getSilo().getCellule(2).getTraitement()));
+        s.actu4.setText("N:"+formatter.format(c.getSilo().getCellule(3).getNettoyage())+"\nV:"+formatter.format(c.getSilo().getCellule(3).getVentilation())+"\nT:"+formatter.format(c.getSilo().getCellule(3).getTraitement()));
+        s.actu5.setText("N:"+formatter.format(c.getSilo().getCellule(4).getNettoyage())+"\nV:"+formatter.format(c.getSilo().getCellule(4).getVentilation())+"\nT:"+formatter.format(c.getSilo().getCellule(4).getTraitement()));
+        s.actu6.setText("N:"+formatter.format(c.getSilo().getCellule(5).getNettoyage())+"\nV:"+formatter.format(c.getSilo().getCellule(5).getVentilation())+"\nT:"+formatter.format(c.getSilo().getCellule(5).getTraitement()));
+        s.actu7.setText("N:"+formatter.format(c.getSilo().getCellule(6).getNettoyage())+"\nV:"+formatter.format(c.getSilo().getCellule(6).getVentilation())+"\nT:"+formatter.format(c.getSilo().getCellule(6).getTraitement()));
+        s.actu8.setText("N:"+formatter.format(c.getSilo().getCellule(7).getNettoyage())+"\nV:"+formatter.format(c.getSilo().getCellule(7).getVentilation())+"\nT:"+formatter.format(c.getSilo().getCellule(7).getTraitement()));
+        s.actu9.setText("N:"+formatter.format(c.getSilo().getCellule(8).getNettoyage())+"\nV:"+formatter.format(c.getSilo().getCellule(8).getVentilation())+"\nT:"+formatter.format(c.getSilo().getCellule(8).getTraitement()));
+        s.actu10.setText("N:"+formatter.format(c.getSilo().getCellule(9).getNettoyage())+"\nV:"+formatter.format(c.getSilo().getCellule(9).getVentilation())+"\nT:"+formatter.format(c.getSilo().getCellule(9).getTraitement()));
+    
+        s.carre1.setBounds(25,500,25,350);
+/*        s.temp2.setText(""+c.getSilo().getCellule(1).getTempMoy());
+        s.temp3.setText(""+c.getSilo().getCellule(2).getTempMoy());
+        s.temp4.setText(""+c.getSilo().getCellule(3).getTempMoy());
+        s.temp5.setText(""+c.getSilo().getCellule(4).getTempMoy());
+        s.temp6.setText(""+c.getSilo().getCellule(5).getTempMoy());
+        s.temp7.setText(""+c.getSilo().getCellule(6).getTempMoy());
+        s.temp8.setText(""+c.getSilo().getCellule(7).getTempMoy());
+        s.temp9.setText(""+c.getSilo().getCellule(8).getTempMoy());
+        s.temp10.setText(""+c.getSilo().getCellule(9).getTempMoy());*/
+    }
+    
+    private void majBD(int i, int j){
+        Date auj = new Date();
+        if(j==1)
+            c.getSilo().getCellule(i).setNettoyage(auj);
+        else if (j==2){
+            c.getSilo().getCellule(i).setVentilation(auj);
+            c.getSilo().getCellule(i).getSonde().setTemperature(c.getSilo().getCellule(i).getSonde().getTemperature()-5);
+        }
+        else if (j==3)
+            c.getSilo().getCellule(i).setTraitement(auj);
+        else
+            jPanel3.setBackground(Color.yellow);
+    }
+    
+    private void majAlarme(){
+        for (int i=0;i<c.getSilo().getNbCellule();i++){
+            if (c.getSilo().getCellule(i).getSonde().getTemperature()>23){
+                a.setActive(true);
+                jPanel3.setBackground(Color.red);
+            }
+        }
+        if (!a.isActive()){
+            jPanel3.setBackground(Color.green);
+        }
+    }
     /**
      * @param args the command line arguments
      */

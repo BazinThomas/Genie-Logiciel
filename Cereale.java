@@ -1,4 +1,4 @@
-package fr.ufrsciencestech.panier;
+package Beuzelin;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;

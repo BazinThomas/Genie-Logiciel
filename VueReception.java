@@ -47,7 +47,7 @@ public class VueReception extends javax.swing.JDialog {
 
         jPanel1.setLayout(new java.awt.BorderLayout());
 
-        listeTransport.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        listeTransport.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Routier", "Train", "Bateau", "Aérien" }));
         jPanel1.add(listeTransport, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(jPanel1);
@@ -64,7 +64,7 @@ public class VueReception extends javax.swing.JDialog {
 
         jPanel2.setLayout(new java.awt.BorderLayout());
 
-        listeCellule.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        listeCellule.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1" }));
         jPanel2.add(listeCellule, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(jPanel2);

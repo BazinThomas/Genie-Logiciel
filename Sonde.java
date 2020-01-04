@@ -1,4 +1,4 @@
-package fr.ufrsciencestech.panier;
+package Beuzelin;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -6,10 +6,10 @@ import java.util.logging.Logger;
 public class Sonde 
 {
 
-    private float temperature;
+    private int temperature;
 
     //Constructeur
-    public Sonde(float t) 	
+    public Sonde(int t) 	
         {	
 		this.temperature=t;
 	}
@@ -24,13 +24,18 @@ public class Sonde
     }
     
     //Get-set 
-    public float getTemperature()
+    public int getTemperature()
 	{
 		return this.temperature;
 	}
     
-    public void setTemperature(float temperature) {
+    public void setTemperature(int temperature) {
         this.temperature = temperature;
     }
- 
+
+    @Override
+    public String toString() {
+        return "T : " + temperature;
+    }
+
 }

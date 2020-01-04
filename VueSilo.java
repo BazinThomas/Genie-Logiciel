@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Beuzelin;
 
 import java.awt.Color;
@@ -13,10 +8,10 @@ import java.awt.Dimension;
  * @author af077964
  */
 public class VueSilo extends javax.swing.JDialog {
-
-    /**
-     * Creates new form VueSilo
-     */
+    
+    public int select;
+    public int action;
+    
     public VueSilo(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -40,7 +35,7 @@ public class VueSilo extends javax.swing.JDialog {
         max1 = new javax.swing.JLabel();
         temp1 = new javax.swing.JLabel();
         selection1 = new javax.swing.JRadioButton();
-        actu1 = new javax.swing.JLabel();
+        actu1 = new javax.swing.JTextArea();
         mini1 = new javax.swing.JLabel();
         cell2 = new javax.swing.JPanel();
         affichage2 = new javax.swing.JPanel();
@@ -49,7 +44,7 @@ public class VueSilo extends javax.swing.JDialog {
         max2 = new javax.swing.JLabel();
         temp2 = new javax.swing.JLabel();
         selection2 = new javax.swing.JRadioButton();
-        actu2 = new javax.swing.JLabel();
+        actu2 = new javax.swing.JTextArea();
         mini2 = new javax.swing.JLabel();
         cell3 = new javax.swing.JPanel();
         affichage3 = new javax.swing.JPanel();
@@ -58,7 +53,7 @@ public class VueSilo extends javax.swing.JDialog {
         max3 = new javax.swing.JLabel();
         temp3 = new javax.swing.JLabel();
         selection3 = new javax.swing.JRadioButton();
-        actu3 = new javax.swing.JLabel();
+        actu3 = new javax.swing.JTextArea();
         mini3 = new javax.swing.JLabel();
         cell4 = new javax.swing.JPanel();
         affichage4 = new javax.swing.JPanel();
@@ -67,7 +62,7 @@ public class VueSilo extends javax.swing.JDialog {
         max4 = new javax.swing.JLabel();
         temp4 = new javax.swing.JLabel();
         selection4 = new javax.swing.JRadioButton();
-        actu4 = new javax.swing.JLabel();
+        actu4 = new javax.swing.JTextArea();
         mini4 = new javax.swing.JLabel();
         cell5 = new javax.swing.JPanel();
         affichage5 = new javax.swing.JPanel();
@@ -76,7 +71,7 @@ public class VueSilo extends javax.swing.JDialog {
         max5 = new javax.swing.JLabel();
         temp5 = new javax.swing.JLabel();
         selection5 = new javax.swing.JRadioButton();
-        actu5 = new javax.swing.JLabel();
+        actu5 = new javax.swing.JTextArea();
         mini5 = new javax.swing.JLabel();
         cell6 = new javax.swing.JPanel();
         affichage6 = new javax.swing.JPanel();
@@ -85,7 +80,7 @@ public class VueSilo extends javax.swing.JDialog {
         max6 = new javax.swing.JLabel();
         temp6 = new javax.swing.JLabel();
         selection6 = new javax.swing.JRadioButton();
-        actu6 = new javax.swing.JLabel();
+        actu6 = new javax.swing.JTextArea();
         mini6 = new javax.swing.JLabel();
         cell7 = new javax.swing.JPanel();
         affichage7 = new javax.swing.JPanel();
@@ -94,7 +89,7 @@ public class VueSilo extends javax.swing.JDialog {
         max7 = new javax.swing.JLabel();
         temp7 = new javax.swing.JLabel();
         selection7 = new javax.swing.JRadioButton();
-        actu7 = new javax.swing.JLabel();
+        actu7 = new javax.swing.JTextArea();
         mini7 = new javax.swing.JLabel();
         cell8 = new javax.swing.JPanel();
         affichage8 = new javax.swing.JPanel();
@@ -103,7 +98,7 @@ public class VueSilo extends javax.swing.JDialog {
         max8 = new javax.swing.JLabel();
         temp8 = new javax.swing.JLabel();
         selection8 = new javax.swing.JRadioButton();
-        actu8 = new javax.swing.JLabel();
+        actu8 = new javax.swing.JTextArea();
         mini8 = new javax.swing.JLabel();
         cell9 = new javax.swing.JPanel();
         affichage9 = new javax.swing.JPanel();
@@ -112,7 +107,7 @@ public class VueSilo extends javax.swing.JDialog {
         max9 = new javax.swing.JLabel();
         temp9 = new javax.swing.JLabel();
         selection9 = new javax.swing.JRadioButton();
-        actu9 = new javax.swing.JLabel();
+        actu9 = new javax.swing.JTextArea();
         mini9 = new javax.swing.JLabel();
         cell10 = new javax.swing.JPanel();
         affichage10 = new javax.swing.JPanel();
@@ -121,7 +116,7 @@ public class VueSilo extends javax.swing.JDialog {
         max10 = new javax.swing.JLabel();
         temp10 = new javax.swing.JLabel();
         selection10 = new javax.swing.JRadioButton();
-        actu10 = new javax.swing.JLabel();
+        actu10 = new javax.swing.JTextArea();
         mini10 = new javax.swing.JLabel();
         Bouton = new javax.swing.JPanel();
         silonettoyage = new javax.swing.JButton();
@@ -130,7 +125,8 @@ public class VueSilo extends javax.swing.JDialog {
         siloannuler = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(800, 500));
+        setMinimumSize(new java.awt.Dimension(600, 400));
+        setPreferredSize(new java.awt.Dimension(1200, 800));
 
         Panneau.setLayout(new java.awt.GridLayout(2, 5));
 
@@ -600,14 +596,50 @@ public class VueSilo extends javax.swing.JDialog {
         this.dispose();
     }  
     
-    private void siloventilationActionPerformed(java.awt.event.ActionEvent evt) {        
+    private void silonettoyageActionPerformed(java.awt.event.ActionEvent evt) {
+        select=this.getSelection();
+        action=1;
+        this.dispose();
     } 
     
-    private void silotraitemenntActionPerformed(java.awt.event.ActionEvent evt) {           
+    private void siloventilationActionPerformed(java.awt.event.ActionEvent evt) {
+        select=this.getSelection();
+        action=2;
+        this.dispose();
     } 
     
-    private void silonettoyageActionPerformed(java.awt.event.ActionEvent evt) {        
+    private void silotraitemenntActionPerformed(java.awt.event.ActionEvent evt) {
+        select=this.getSelection();
+        action=3;
+        this.dispose();
     } 
+    
+    
+    
+    private int getSelection(){
+        int temp;
+        if (selection1.isSelected())
+            return temp=1;
+        else if (selection2.isSelected())
+            return temp=2;
+        else if (selection3.isSelected())
+            return temp=3;
+        else if (selection4.isSelected())
+            return temp=4;
+        else if (selection5.isSelected())
+            return temp=5;
+        else if (selection6.isSelected())
+            return temp=6;
+        else if (selection7.isSelected())
+            return temp=7;
+        else if (selection8.isSelected())
+            return temp=8;
+        else if (selection9.isSelected())
+            return temp=9;
+        else if (selection10.isSelected())
+            return temp=10;
+        else return temp=-1;
+    }
 
     /**
      * @param args the command line arguments
@@ -654,27 +686,26 @@ public class VueSilo extends javax.swing.JDialog {
     // Variables declaration - do not modify                     
     private javax.swing.JPanel Bouton;
     private javax.swing.JPanel Panneau;
-    private javax.swing.JLabel actu1;
-    private javax.swing.JLabel actu10;
-    private javax.swing.JLabel actu2;
-    private javax.swing.JLabel actu3;
-    private javax.swing.JLabel actu4;
-    private javax.swing.JLabel actu5;
-    private javax.swing.JLabel actu6;
-    private javax.swing.JLabel actu7;
-    private javax.swing.JLabel actu8;
-    private javax.swing.JLabel actu9;
-    private javax.swing.JPanel test1;
-    private javax.swing.JPanel carre1;
-    private javax.swing.JPanel carre2;
-    private javax.swing.JPanel carre3;
-    private javax.swing.JPanel carre4;
-    private javax.swing.JPanel carre5;
-    private javax.swing.JPanel carre6;
-    private javax.swing.JPanel carre7;
-    private javax.swing.JPanel carre8;
-    private javax.swing.JPanel carre9;
-    private javax.swing.JPanel carre10;  
+    public javax.swing.JTextArea actu1;
+    public javax.swing.JTextArea actu10;
+    public javax.swing.JTextArea actu2;
+    public javax.swing.JTextArea actu3;
+    public javax.swing.JTextArea actu4;
+    public javax.swing.JTextArea actu5;
+    public javax.swing.JTextArea actu6;
+    public javax.swing.JTextArea actu7;
+    public javax.swing.JTextArea actu8;
+    public javax.swing.JTextArea actu9;
+    public javax.swing.JPanel carre1;
+    public javax.swing.JPanel carre2;
+    public javax.swing.JPanel carre3;
+    public javax.swing.JPanel carre4;
+    public javax.swing.JPanel carre5;
+    public javax.swing.JPanel carre6;
+    public javax.swing.JPanel carre7;
+    public javax.swing.JPanel carre8;
+    public javax.swing.JPanel carre9;
+    public javax.swing.JPanel carre10;  
     private javax.swing.JPanel affichage1;
     private javax.swing.JPanel affichage10;
     private javax.swing.JPanel affichage2;
@@ -700,26 +731,26 @@ public class VueSilo extends javax.swing.JDialog {
     private javax.swing.JButton siloventilation;
     private javax.swing.JButton silotraitement;
     private javax.swing.JButton siloannuler;
-    private javax.swing.JLabel max1;
-    private javax.swing.JLabel max10;
-    private javax.swing.JLabel max2;
-    private javax.swing.JLabel max3;
-    private javax.swing.JLabel max4;
-    private javax.swing.JLabel max5;
-    private javax.swing.JLabel max6;
-    private javax.swing.JLabel max7;
-    private javax.swing.JLabel max8;
-    private javax.swing.JLabel max9;
-    private javax.swing.JLabel mini1;
-    private javax.swing.JLabel mini10;
-    private javax.swing.JLabel mini2;
-    private javax.swing.JLabel mini3;
-    private javax.swing.JLabel mini4;
-    private javax.swing.JLabel mini5;
-    private javax.swing.JLabel mini6;
-    private javax.swing.JLabel mini7;
-    private javax.swing.JLabel mini8;
-    private javax.swing.JLabel mini9;
+    public javax.swing.JLabel max1;
+    public javax.swing.JLabel max10;
+    public javax.swing.JLabel max2;
+    public javax.swing.JLabel max3;
+    public javax.swing.JLabel max4;
+    public javax.swing.JLabel max5;
+    public javax.swing.JLabel max6;
+    public javax.swing.JLabel max7;
+    public javax.swing.JLabel max8;
+    public javax.swing.JLabel max9;
+    public javax.swing.JLabel mini1;
+    public javax.swing.JLabel mini10;
+    public javax.swing.JLabel mini2;
+    public javax.swing.JLabel mini3;
+    public javax.swing.JLabel mini4;
+    public javax.swing.JLabel mini5;
+    public javax.swing.JLabel mini6;
+    public javax.swing.JLabel mini7;
+    public javax.swing.JLabel mini8;
+    public javax.swing.JLabel mini9;
     private javax.swing.JRadioButton selection1;
     private javax.swing.JRadioButton selection10;
     private javax.swing.JRadioButton selection2;
@@ -730,25 +761,25 @@ public class VueSilo extends javax.swing.JDialog {
     private javax.swing.JRadioButton selection7;
     private javax.swing.JRadioButton selection8;
     private javax.swing.JRadioButton selection9;
-    private javax.swing.JPanel stats1;
-    private javax.swing.JPanel stats10;
-    private javax.swing.JPanel stats2;
-    private javax.swing.JPanel stats3;
-    private javax.swing.JPanel stats4;
-    private javax.swing.JPanel stats5;
-    private javax.swing.JPanel stats6;
-    private javax.swing.JPanel stats7;
-    private javax.swing.JPanel stats8;
-    private javax.swing.JPanel stats9;
-    private javax.swing.JLabel temp1;
-    private javax.swing.JLabel temp10;
-    private javax.swing.JLabel temp2;
-    private javax.swing.JLabel temp3;
-    private javax.swing.JLabel temp4;
-    private javax.swing.JLabel temp5;
-    private javax.swing.JLabel temp6;
-    private javax.swing.JLabel temp7;
-    private javax.swing.JLabel temp8;
-    private javax.swing.JLabel temp9;
+    public javax.swing.JPanel stats1;
+    public javax.swing.JPanel stats10;
+    public javax.swing.JPanel stats2;
+    public javax.swing.JPanel stats3;
+    public javax.swing.JPanel stats4;
+    public javax.swing.JPanel stats5;
+    public javax.swing.JPanel stats6;
+    public javax.swing.JPanel stats7;
+    public javax.swing.JPanel stats8;
+    public javax.swing.JPanel stats9;
+    public javax.swing.JLabel temp1;
+    public javax.swing.JLabel temp10;
+    public javax.swing.JLabel temp2;
+    public javax.swing.JLabel temp3;
+    public javax.swing.JLabel temp4;
+    public javax.swing.JLabel temp5;
+    public javax.swing.JLabel temp6;
+    public javax.swing.JLabel temp7;
+    public javax.swing.JLabel temp8;
+    public javax.swing.JLabel temp9;
     // End of variables declaration                   
 }

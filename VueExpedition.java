@@ -5,15 +5,12 @@
  */
 package Beuzelin;
 
-/**
- *
- * @author af077964
- */
 public class VueExpedition extends javax.swing.JDialog {
 
     public VueExpedition(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+
     }
 
     /**

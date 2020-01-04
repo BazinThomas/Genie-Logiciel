@@ -1,4 +1,4 @@
-package fr.ufrsciencestech.panier;
+package Beuzelin;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,28 +22,26 @@ public class Alarme
     }
     
     public void stopAlarme(){
-       active=false;
-	    
+       active=false;	    
     }
     
     //Get-set 
-    public String getCause()
-	{
-		return this.cause;
-	}
-    
+
+    public String getCause() {
+        return cause;
+    }
+
     public void setCause(String cause) {
         this.cause = cause;
     }
-    
-    //Get-set 
-    public boolean getActive()
-	{
-		return this.active;
-	}
-    
+
+    public boolean isActive() {
+        return active;
+    }
+
     public void setActive(boolean active) {
         this.active = active;
     }
+    
  
 }
