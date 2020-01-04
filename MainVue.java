@@ -121,7 +121,7 @@ public class MainVue extends javax.swing.JFrame {
     }
     
     private void initSilo(){
-        s.mini1.setText("0");
+        s.mini1.setText("0"+c.getSilo().getCellule(0).getInfo().getVolume()*100/(float)c.getSilo().getCellule(0).getPoidsMax()/100*350);
         s.mini2.setText("0");
         s.mini3.setText("0");
         s.mini4.setText("0");
@@ -166,16 +166,26 @@ public class MainVue extends javax.swing.JFrame {
         s.actu9.setText("N:"+formatter.format(c.getSilo().getCellule(8).getNettoyage())+"\nV:"+formatter.format(c.getSilo().getCellule(8).getVentilation())+"\nT:"+formatter.format(c.getSilo().getCellule(8).getTraitement()));
         s.actu10.setText("N:"+formatter.format(c.getSilo().getCellule(9).getNettoyage())+"\nV:"+formatter.format(c.getSilo().getCellule(9).getVentilation())+"\nT:"+formatter.format(c.getSilo().getCellule(9).getTraitement()));
     
-        s.carre1.setBounds(25,500,25,350);
-/*        s.temp2.setText(""+c.getSilo().getCellule(1).getTempMoy());
-        s.temp3.setText(""+c.getSilo().getCellule(2).getTempMoy());
-        s.temp4.setText(""+c.getSilo().getCellule(3).getTempMoy());
-        s.temp5.setText(""+c.getSilo().getCellule(4).getTempMoy());
-        s.temp6.setText(""+c.getSilo().getCellule(5).getTempMoy());
-        s.temp7.setText(""+c.getSilo().getCellule(6).getTempMoy());
-        s.temp8.setText(""+c.getSilo().getCellule(7).getTempMoy());
-        s.temp9.setText(""+c.getSilo().getCellule(8).getTempMoy());
-        s.temp10.setText(""+c.getSilo().getCellule(9).getTempMoy());*/
+        int temp = (int)(  c.getSilo().getCellule(0).getInfo().getVolume()*100/(float)c.getSilo().getCellule(0).getPoidsMax()/100*350 );
+        s.carre1.setBounds(25,25+(350-temp),25, temp );
+        temp = (int)(  c.getSilo().getCellule(1).getInfo().getVolume()*100/(float)c.getSilo().getCellule(1).getPoidsMax()/100*350 );
+        s.carre2.setBounds(25,25+(350-temp),25, temp );
+        temp = (int)(  c.getSilo().getCellule(2).getInfo().getVolume()*100/(float)c.getSilo().getCellule(2).getPoidsMax()/100*350 );
+        s.carre3.setBounds(25,25+(350-temp),25, temp );
+        temp = (int)(  c.getSilo().getCellule(3).getInfo().getVolume()*100/(float)c.getSilo().getCellule(3).getPoidsMax()/100*350 );
+        s.carre4.setBounds(25,25+(350-temp),25, temp );
+        temp = (int)(  c.getSilo().getCellule(4).getInfo().getVolume()*100/(float)c.getSilo().getCellule(4).getPoidsMax()/100*350 );
+        s.carre5.setBounds(25,25+(350-temp),25, temp );
+        temp = (int)(  c.getSilo().getCellule(5).getInfo().getVolume()*100/(float)c.getSilo().getCellule(5).getPoidsMax()/100*350 );
+        s.carre6.setBounds(25,25+(350-temp),25, temp );
+        temp = (int)(  c.getSilo().getCellule(6).getInfo().getVolume()*100/(float)c.getSilo().getCellule(6).getPoidsMax()/100*350 );
+        s.carre7.setBounds(25,25+(350-temp),25, temp );
+        temp = (int)(  c.getSilo().getCellule(7).getInfo().getVolume()*100/(float)c.getSilo().getCellule(7).getPoidsMax()/100*350 );
+        s.carre8.setBounds(25,25+(350-temp),25, temp );
+        temp = (int)(  c.getSilo().getCellule(8).getInfo().getVolume()*100/(float)c.getSilo().getCellule(8).getPoidsMax()/100*350 );
+        s.carre9.setBounds(25,25+(350-temp),25, temp );
+        temp = (int)(  c.getSilo().getCellule(9).getInfo().getVolume()*100/(float)c.getSilo().getCellule(9).getPoidsMax()/100*350 );
+        s.carre10.setBounds(25,25+(350-temp),25, temp );
     }
     
     private void majBD(int i, int j){
